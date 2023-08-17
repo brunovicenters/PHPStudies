@@ -31,4 +31,20 @@
 	echo $bebida; // You'll print "refrigerante";
 	echo '<br>';
 	echo $refrigerante; // You'll print "coca-cola", using "refrigerante" as variable;
+	echo '<hr>';
+
+	//*****************************************************************************************
+
+	// You can use var_dump() to see informations about the var, as type, lenght, etc -
+	$nome = "Pizza";
+	var_dump($nome);
+	echo "<br>";
+	$idade = 20;
+	var_dump($idade);
+	echo "<br>";
+	$price = 23.6;
+	var_dump($price);
+	echo "<br>";
+	$isHandsome = true;
+	var_dump($isHandsome);
 ?>
