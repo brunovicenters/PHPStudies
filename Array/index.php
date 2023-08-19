@@ -4,8 +4,8 @@
     // To create an array, you can use array() -
     $carros = array("Gol", "Uno", "Fiesta", 14, 20.8, false, true);
 
-    // You cant use echo to show arrays in its full extension -
-    // echo $animais; - It shows a warning message;
+    // You can't use echo to show arrays in its full extension -
+    // echo $carros; - It shows a warning message;
 
     // You can use var_dump() and see all its informations -
     var_dump($carros);
