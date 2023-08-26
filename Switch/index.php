@@ -152,4 +152,37 @@
         default:
             echo "Esse mês não existe";
     endswitch;
+
+    echo '<hr>';
+
+    //***********************************************************************************
+
+    // Exercise --
+    $nota = 7;
+
+    switch($nota){
+        case $nota < 6:
+            echo "Sua nota foi $nota. Ela é insuficiente.";
+            break;
+        
+        case $nota === 6:
+            echo "Sua nota foi $nota. Ela é suficiente.";
+            break;
+
+        case $nota === 7:
+            echo "Sua nota foi $nota. Ela é boa.";
+            break;
+        
+        case $nota === 8:
+            echo "Sua nota foi $nota. Ela é muito boa.";
+            break;
+
+        case $nota >= 9:
+            echo "Sua nota foi $nota. Ela é excelente.";
+            break;
+
+        default:
+            echo "Nota inválida!";
+    }
+    echo '<hr>';
 ?>
