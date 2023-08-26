@@ -1,6 +1,6 @@
 <?php
     // For --
-    for($i=0;$i<5;$i++){
+    for($i=0;$i<2;$i++){
         if($i==3){
             echo '<br> A quantidade de mundias do SP é:';
         }
@@ -12,9 +12,9 @@
     //***********************************************************************************
 
     // While --
-    $contador = '1';
+    $contador = 1;
     // while(condition){code} --
-    while($contador <= 5):
+    while($contador <= 2):
         echo "Contador é $contador <br>";
         $contador++;
     // End loop --
@@ -26,7 +26,7 @@
     
     // Exercise --
 
-    $input = 4;
+    $input = 2;
     $number = 1;
     $soma = 0;
     while($number <= $input){
@@ -44,7 +44,7 @@
     do{
         echo 'Hello <br>';
         $num++;
-    } while ($num < 3);
+    } while ($num < 2);
 
     echo "<hr>";
 
@@ -58,31 +58,23 @@
     do{
         echo $tabuada*$i."<br>";
         $i++;
-    } while($i<=10);
+    } while($i<=3);
     echo "<hr>";
 
     //***********************************************************************************
 
     // Exercise --
 
-    $tabuada = 2;
-    $i = 1;
-
-    do{
-        echo $tabuada*$i."<br>";
-        $i++;
-    } while($i<=10);
-    echo "<hr>";
-
-    //***********************************************************************************
-
-    // Exercise --
-
-    $l = 10;
+    $l = 3;
 
     do{
         echo $l."<br>";
         $l--;
     } while($l>=1);
     echo "<hr>";
+
+    //***********************************************************************************
+
+    // Exercise --
+
 ?>
