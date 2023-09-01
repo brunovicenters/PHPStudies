@@ -122,4 +122,14 @@
     $infoAntiga = ["Tel"=>"55 11 99022-5294", "End."=>"Avenida Interlagos, 871", "Owner"=>"Robert Renan"];
     $infoNova = ["Tel"=>"55 11 99530-5370", "Spouse"=>"Marie Jane"];
     print_r(array_merge($infoAntiga, $infoNova));
+
+    echo '<hr>';
+
+    //*******************************************************************************************
+
+    $arr = [1,2,3,4];
+    // Reverse the array --
+    print_r(array_reverse($arr));
+
+    echo '<hr>';
 ?>
