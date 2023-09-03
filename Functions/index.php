@@ -29,6 +29,14 @@
     // The variable only exists inside the function -- 
     echo $cidade; // It won't work without global;
     echo "<hr>";
+
+    //********************************************************************************
     
+    // You can pass arguments with "$var" and separate them with "," -- 
+    function addNumbs($num1, $num2) {
+        echo "$num1 + $num2 = ".$num1 + $num2;
+    }
+
+    addNumbs(4,5);
 
 ?>
