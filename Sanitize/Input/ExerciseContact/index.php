@@ -1,5 +1,8 @@
 <?php
-    if(isset($_POST['name'], $_POST['email'], $_POST['msg']) && !empty($_POST['name']) && !empty($_POST['email']) && !empty($_POST['msg'])){
+    if(isset($_POST['name'], $_POST['email'], $_POST['msg']) 
+    && !empty($_POST['name']) 
+    && !empty($_POST['email']) 
+    && !empty($_POST['msg'])){
         
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING);
         $email = filter_input(INPUT_POST, "email", FILTER_VALIDATE_EMAIL);
