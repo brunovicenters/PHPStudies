@@ -6,7 +6,7 @@
     // FILTER_SANITIZE_EMAIL -> Filters email
     $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 
-    //Sanitize and validate age --
+    // You can use specific filters with options --
     $options = ['options' => array('min_range'=>0, "max_range"=>100)];
     $age = filter_input(INPUT_POST, 'age', FILTER_VALIDATE_INT, $options);
 
