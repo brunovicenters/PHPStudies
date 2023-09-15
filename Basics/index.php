@@ -9,7 +9,7 @@
 
 	//*****************************************************************************************
 
-	//To write text, or even html and other codes, use echo 'text' and .(dot) to concatenation -
+	//To write text, or even html and other codes, use echo 'text' and "."(dot) to concatenate -
 	echo 'Hello, '.$name;
 	echo '<hr>';
 
