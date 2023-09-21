@@ -14,7 +14,7 @@ if (!isset($_SESSION["admin_login"])) {
 <?php include "../template/head.php" ?>
 
 <body>
-    <h1 class="h1 text-center">Welcome, Admin!</h1>
+    <h1 class="h1 text-center mt-3">Welcome, Admin!</h1>
 </body>
 
 </html>
