@@ -19,6 +19,11 @@ if (!isset($_SESSION["admin_login"])) {
         <a type="btn" class="btn btn-info text center" href="register_product.php">Register product</a>
         <a type="btn" class="btn btn-warning text center" href="register_admin.php">Register admin</a>
     </div>
+    <?php if (isset($_GET['success'])) {
+        echo "<p class='text-success mt-3'>Admin created!</p>";
+    } else if (isset($_GET['error'])) {
+        echo "<p class='text-success mt-3'>Error while creating admin!</p>";
+    } ?>
 </body>
 
 </html>
