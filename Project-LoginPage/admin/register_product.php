@@ -1,3 +1,11 @@
+<?php
+session_start();
+if (!isset($_SESSION["admin_login"])) {
+    // redirect to another location --
+    header("Location:login.php");
+    exit();
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
