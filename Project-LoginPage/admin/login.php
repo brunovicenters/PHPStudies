@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="h2 text-center mt-3 mb-5">Login do Administrador</h2>
+                <h2 class="h2 text-center mt-3 mb-5">Admin Login</h2>
                 <form action="process_login.php" method="post" class="col-md-12">
                     <label class="form-label col-md-12" for="user">User:</l class="form-label">
                         <input class="form-control col-md-12 mt-2 mb-3" type="text" name="user" id="user" required>
