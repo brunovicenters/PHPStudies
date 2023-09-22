@@ -65,7 +65,7 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="/PHPStudies/Project-LoginPage/crud/admin_crud/delete_admin.php?id=<?= $admin['id'] ?>" class="btn btn-outline-danger">
+                                    <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </td>
@@ -76,6 +76,22 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                     </tbody>
                 </table>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure you want to delete admin <?= $admin['admin_user'] ?>?</h1>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="/PHPStudies/Project-LoginPage/crud/admin_crud/delete_admin.php?id=<?= $admin['id'] ?>" type="btn" class="btn btn-danger">Delete</a>
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
