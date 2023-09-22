@@ -8,8 +8,8 @@ $user = htmlspecialchars($_POST["user"]);
 $password = $_POST['password'];
 
 // sql code to search admin in DB --
-$sql = "SELECT * FROM ADMINISTRATOR WHERE ADM_USER = :user AND ADMIN_PASSWORD = :password 
-AND ADMIN_ACTIVE = 1";
+$sql = "SELECT * FROM administrator WHERE admin_user = :user AND admin_password = :password 
+AND admin_active = 1";
 
 // it searches in the DB, garanteeing the safety of the DB --
 $query = $pdo->prepare($sql);
