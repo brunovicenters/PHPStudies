@@ -38,6 +38,7 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
                 <?php if (isset($_GET['successEdit'])) { ?>
                     <p class="text-success">Succesfuly updated admin</p>
                 <?php } ?>
+                <a type="btn" class="btn btn-warning text center" href="register_admin.php">Register admin</a>
                 <table class="table">
                     <thead>
                         <tr>

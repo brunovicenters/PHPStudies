@@ -17,7 +17,6 @@ if (!isset($_SESSION["admin_login"])) {
     <h1 class="h1 text-center mt-3">Welcome, Admin!</h1>
     <div class="container d-flex flex-column gap-2 justify-content-center col-md-2">
         <a type="btn" class="btn btn-info text center" href="register_product.php">Register product</a>
-        <a type="btn" class="btn btn-warning text center" href="register_admin.php">Register admin</a>
         <a type="btn" class="btn btn-primary text center" href="../crud/admin_crud/index_admin.php">Show admins</a>
     </div>
     <?php if (isset($_GET['success'])) {
