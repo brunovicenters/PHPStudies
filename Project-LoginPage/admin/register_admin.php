@@ -26,7 +26,6 @@ if (!isset($_SESSION["admin_login"])) {
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
