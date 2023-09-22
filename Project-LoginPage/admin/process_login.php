@@ -27,6 +27,6 @@ if ($query->rowCount() > 0) {
     header("Location:admin_panel.php");
     exit();
 } else {
-    header("Location:login.php");
+    header("Location:login.php?error");
     exit();
 }
