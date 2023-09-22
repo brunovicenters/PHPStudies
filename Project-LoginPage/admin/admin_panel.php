@@ -15,6 +15,9 @@ if (!isset($_SESSION["admin_login"])) {
 
 <body>
     <h1 class="h1 text-center mt-3">Welcome, Admin!</h1>
+    <div class="container d-flex justify-content-center">
+        <a type="btn" class="btn btn-info text center" href="register_product.php">Register product</a>
+    </div>
 </body>
 
 </html>
