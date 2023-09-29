@@ -12,21 +12,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $description = $_POST['description'];
     $price = $_POST['price'];
     $img = $_FILES['img']['name'];
-    $url_img = $_POST['url_img'];
 
-    $target_dir = "assets/";
+    $target_dir = "../assets/";
     $target_file = $target_dir . basename($img);
 
     $base_url = "http://localhost/PHPStudies/Project-LoginPage/";
-    $url_img = $base_url . $target_file;
+    $url_img = $base_url . "assets/" . basename($img);
 
 
     if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
         echo "Image" . basename($img) . "was loaded";
     } else {
         echo "Failed to load image";
-        echo "<hr>" . $_FILES['img']["tmp_name"] . "<hr>";
-        echo "$target_dir $target_file $base_url wait   $url_img";
     }
 
     try {
@@ -66,8 +63,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input class="form-control col-md-12 mt-2 mb-3" type="number" name="price" id="price" step="0.01" required>
                     <label class="form-label col-md-12" for="img">Image:</label>
                     <input class="form-control mb-3" type="file" name="img" id="img">
-                    <label class="form-label col-md-12" for="url_img">Image URL:</label>
-                    <input class="form-control mb-3" type="text" name="url_img" id="url_img">
                     <button type="submit" class="btn btn-success">Register</button>
             </form>
         </div>
