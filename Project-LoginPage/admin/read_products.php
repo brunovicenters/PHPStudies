@@ -24,31 +24,32 @@ try {
     <div class="container">
         <div class="row">
             <h1 class="h1 text-center">Products</h1>
-            <table class="table col-md-12">
-                <thead>
-                    <tr>
-                        <th scope="col">Id</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Price</th>
-                        <th scope="col">Image</th>
-                        <th scope="col">Url_image</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($products as $product) :
-                    ?>
+            <div class="col-md-10 offset-md-1">
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td><?= $product["id"] ?></td>
-                            <td class="text-uppercase"><?= $product["name"] ?></td>
-                            <td><?= $product["description"] ?></td>
-                            <td>$<?= $product["price"] ?></td>
-                            <td><img src="<?= $product["url_img"] ?>" alt="<?= $product["description"] ?>" width="50"></td>
-                            <td><?= $product["url_img"] ?></td>
+                            <th scope="col">Id</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Description</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Image</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($products as $product) :
+                        ?>
+                            <tr>
+                                <td><?= $product["id"] ?></td>
+                                <td class="text-uppercase"><?= $product["name"] ?></td>
+                                <td><?= $product["description"] ?></td>
+                                <td>$<?= $product["price"] ?></td>
+                                <td><a href="<?= $product["url_img"] ?>" target="_blank"><img src="<?= $product["url_img"] ?>" alt="<?= $product["description"] ?>" width="50"></a></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+                <a href="/PHPStudies/Project-LoginPage/admin/admin_panel.php" class="btn btn-secondary">Go back</a>
+            </div>
         </div>
     </div>
 </body>

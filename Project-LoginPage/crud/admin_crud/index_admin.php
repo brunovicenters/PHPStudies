@@ -25,7 +25,7 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
     <div class="container">
         <div class="row">
             <h1 class="h1 text-center mt-3">Admins on DataBase:</h1>
-            <div class="container col-md-4 col-md-offset-4 text-center">
+            <div class="container col-md-4 offset-md-4 text-center">
                 <?php if (isset($_GET['warningDel'])) { ?>
                     <p class="text-warning">Admin deleted!</p>
                 <?php } ?>
@@ -76,6 +76,7 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
                         ?>
                     </tbody>
                 </table>
+                <a href="/PHPStudies/Project-LoginPage/admin/admin_panel.php" class="btn btn-secondary">Go back</a>
 
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
