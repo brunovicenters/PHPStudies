@@ -9,21 +9,42 @@ if (!isset($_SESSION["admin_login"])) {
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $name = $_POST['name'];
-    $description = $_POST['$description'];
+    $description = $_POST['description'];
     $price = $_POST['price'];
-    $img = $_POST['img'];
+    $img = $_FILES['img']['name'];
     $url_img = $_POST['url_img'];
 
-    $target_dir = "../assets/";
+    $target_dir = "assets/";
     $target_file = $target_dir . basename($img);
 
     $base_url = "http://localhost/PHPStudies/Project-LoginPage/";
     $url_img = $base_url . $target_file;
 
-    if (move_uploaded_file($FILES['img']['tmp_name'], $target_file)) {
+
+    if (move_uploaded_file($_FILES['img']['tmp_name'], $target_file)) {
         echo "Image" . basename($img) . "was loaded";
     } else {
         echo "Failed to load image";
+        echo "<hr>" . $_FILES['img']["tmp_name"] . "<hr>";
+        echo "$target_dir $target_file $base_url wait   $url_img";
+    }
+
+    try {
+        $sql = "INSERT INTO products (name,description,price,img,url_img) 
+    VALUES (:name, :description, :price, :img, :url_img)";
+
+        $query = $pdo->prepare($sql);
+        $query->bindParam(":name", $name, PDO::PARAM_STR);
+        $query->bindParam(":description", $description, PDO::PARAM_STR);
+        $query->bindParam(":price", $price, PDO::PARAM_STR);
+        $query->bindParam(":img", $img, PDO::PARAM_STR);
+        $query->bindParam(":url_img", $url_img, PDO::PARAM_STR);
+        $query->execute();
+
+        echo "<p style='color:green;'>Successfully registered</p>";
+    } catch (PDOException $err) {
+        echo "<p style='color:red;'>Error while trying to register product!</p>";
+        echo $err->getMessage();
     }
 }
 ?>
