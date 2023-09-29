@@ -42,7 +42,7 @@ try {
                             <td><?= $product["id"] ?></td>
                             <td class="text-uppercase"><?= $product["name"] ?></td>
                             <td><?= $product["description"] ?></td>
-                            <td><?= $product["price"] ?></td>
+                            <td>$<?= $product["price"] ?></td>
                             <td><img src="<?= $product["url_img"] ?>" alt="<?= $product["description"] ?>" width="50"></td>
                             <td><?= $product["url_img"] ?></td>
                         </tr>
