@@ -1,14 +1,20 @@
 <?php
+// It starts the session --
 session_start();
+
+// It checks if the session variable doesn't exist --
 if (!isset($_SESSION["admin_login"])) {
-    // redirect to another location --
+    // redirect to "login" page --
     header("Location:login.php");
+
+    // stops the code --
     exit();
 } ?>
 
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Import head template -->
 <?php include "../../template/head.php"; ?>
 
 <body>
@@ -29,7 +35,3 @@ if (!isset($_SESSION["admin_login"])) {
 </body>
 
 </html>
-
-<?php
-
-?>

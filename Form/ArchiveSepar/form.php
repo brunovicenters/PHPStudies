@@ -5,9 +5,9 @@
     && !empty($_POST['name']) 
     && isset($_POST['email']) 
     && !empty($_POST['email'])){
+        // It stores the $_POST value into a variable --
         $name = $_POST['name'];
         $email = $_POST['email'];
 
         echo "Nome: $name <br> E-mail: $email";
     }
-?>

@@ -32,11 +32,9 @@
 
     //********************************************************************************
     
-    // You can pass arguments with "$var" and separate them with "," -- 
+    // You can pass arguments with "$value" and separate them with "," -- 
     function addNumbs($num1, $num2) {
         echo "$num1 + $num2 = ".$num1 + $num2;
     }
 
     addNumbs(4,5);
-
-?>

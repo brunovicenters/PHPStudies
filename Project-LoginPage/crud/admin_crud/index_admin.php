@@ -1,24 +1,35 @@
 <?php
+// It starts the session --
 session_start();
 
+// It checks if the session variable doesn't exist --
 if (!isset($_SESSION["admin_login"])) {
-    // redirect to another location --
+    // redirect to "login" page --
     header("Location:login.php");
+
+    // stops the code --
     exit();
 }
 
+// Require the DB connection file --
 require_once('../../connection/connection.php');
 
+// Create the sql line to find all admins --
 $sql = "SELECT * FROM `administrator`";
 
+// It prepares the query --
 $query = $pdo->prepare($sql);
+
+// It executes the query --
 $query->execute();
 
+// It stores the result in a array --
 $admins = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Imports a head template -->
 <?php include "../../template/head.php"; ?>
 
 <body>
@@ -26,6 +37,7 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
         <div class="row">
             <h1 class="h1 text-center mt-3">Admins on DataBase:</h1>
             <div class="container col-md-4 offset-md-4 text-center">
+                <!-- It checks the GET variable to show specific message -->
                 <?php if (isset($_GET['warningDel'])) { ?>
                     <p class="text-warning">Admin deleted!</p>
                 <?php } ?>
@@ -50,21 +62,28 @@ $admins = $query->fetchAll(PDO::FETCH_ASSOC);
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Create a foreach for admins + Create a counter of admins -->
                         <?php
                         $counter = 1;
                         foreach ($admins as $admin) :
                         ?>
                             <tr>
+                                <!-- It shows the admin counter -->
                                 <th scope="row"><?= $counter ?></th>
+                                <!-- It shows de admin id -->
                                 <td><?= $admin['id'] ?></td>
+                                <!-- It shows de admin user -->
                                 <td><?= $admin['admin_user'] ?></td>
+                                <!-- It shows de admin status -->
                                 <td><?= $admin['admin_active'] ?></td>
                                 <td>
+                                    <!-- It sends a request to edit page -->
                                     <a href="/PHPStudies/Project-LoginPage/crud/admin_crud/edit_admin.php?id=<?= $admin['id'] ?>" class="btn btn-outline-warning">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
                                 </td>
                                 <td>
+                                    <!-- It sends a request to delete admin -->
                                     <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                         <i class="bi bi-trash"></i>
                                     </a>

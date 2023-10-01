@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- It imports the head template -->
 <?php include "../template/head.php"; ?>
 
 <body>
@@ -14,6 +15,7 @@
                         <label class="form-label col-md-12 mb-2" for="password">Password:</label>
                         <input class="form-control col-md-12 mt-2 mb-3" type="password" name="password" id="password" required>
                         <button type="submit" class="btn btn-success">Login</button>
+                        <!-- In case of "error" as a GET value, show message -->
                         <?php if (isset($_GET['error'])) {
                             echo "<p class='text-danger mt-3'>Incorrect user or password</p>";
                         } ?>

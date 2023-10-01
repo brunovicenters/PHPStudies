@@ -1,9 +1,13 @@
 <?php
+// It stars the session --
 session_start();
 
+// It checks if the session variable doesn't exist --
 if (!isset($_SESSION["admin_login"])) {
-    // redirect to another location --
+    // redirect to "login" page --
     header("Location:login.php");
+
+    // stops the code --
     exit();
 }
 
@@ -11,6 +15,7 @@ if (!isset($_SESSION["admin_login"])) {
 <!DOCTYPE html>
 <html lang="en">
 
+<!-- Import head template -->
 <?php include "../template/head.php" ?>
 
 <body>
@@ -20,6 +25,8 @@ if (!isset($_SESSION["admin_login"])) {
         <a type="btn" class="btn btn-primary text center" href="read_products.php">Show Products</a>
         <a type="btn" class="btn btn-primary text center" href="../crud/admin_crud/index_admin.php">Show admins</a>
     </div>
+
+    <!-- In case there's "success" or "error" as a GET value, show message -->
     <?php if (isset($_GET['success'])) {
         echo "<p class='text-success mt-3'>Admin created!</p>";
     } else if (isset($_GET['error'])) {
