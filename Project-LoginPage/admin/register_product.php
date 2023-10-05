@@ -85,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input class="form-control mb-3" type="file" name="img" id="img" required>
                     <button type="submit" class="btn btn-success">Register</button>
             </form>
+            <a href="admin_panel.php" class="btn btn-secondary">Go back</a>
         </div>
     </div>
 </body>

@@ -80,7 +80,7 @@ try {
                         <?php endforeach; ?>
                     </tbody>
                 </table>
-                <a href="/PHPStudies/Project-LoginPage/admin/admin_panel.php" class="btn btn-secondary">Go back</a>
+                <a href="admin_panel.php" class="btn btn-secondary">Go back</a>
 
                 <!-- Modal -->
                 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">

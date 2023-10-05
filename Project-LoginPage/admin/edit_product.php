@@ -83,6 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
                 <button type="submit" class="btn btn-success">Update</button>
             </form>
         </div>
+        <a href="read_products.php" class="btn btn-secondary mt-4">Go back</a>
     </div>
 </body>
 
