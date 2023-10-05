@@ -82,7 +82,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label class="form-label col-md-12" for="price">Price:</label>
                     <input class="form-control col-md-12 mt-2 mb-3" type="number" name="price" id="price" step="0.01" required>
                     <label class="form-label col-md-12" for="img">Image:</label>
-                    <input class="form-control mb-3" type="file" name="img" id="img">
+                    <input class="form-control mb-3" type="file" name="img" id="img" required>
                     <button type="submit" class="btn btn-success">Register</button>
             </form>
         </div>
