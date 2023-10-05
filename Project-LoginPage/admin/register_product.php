@@ -55,8 +55,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Execute the query --
         $query->execute();
 
+        header("Location:read_products.php");
         // In case all goes well, show success message --
         echo "<p style='color:green;'>Successfully registered</p>";
+        exit();
     } catch (PDOException $err) { // It stores the error or exception in a variable --
         // Shows the error --
         echo "<p style='color:red;'>Error while trying to register product!</p>";
