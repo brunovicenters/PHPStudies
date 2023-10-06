@@ -14,53 +14,43 @@ if (!isset($_SESSION["admin_login"])) {
 
 // It checks if the request method is the GET method --
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
+    // Checks if there's a GET id value --
     if (isset($_GET['id'])) {
+        // Stores the GET id value in a variable --
         $id = $_GET['id'];
     }
 
+    // Tries the sql line -- 
     try {
+        // Writes the sql line --
         $sql = "SELECT * FROM products WHERE id = :id";
+        // Prepares the query --
         $query = $pdo->prepare(($sql));
-
+        // Binds the placeholder ":id" to the variable "$id" --
         $query->bindParam(':id', $id, PDO::PARAM_INT);
+        // Executes the query --
         $query->execute();
+
+        // Stores the query result in a variable --
         $product = $query->fetch(PDO::FETCH_ASSOC);
 
+        // Checks if product exists --
         if (!$product) {
+            // Redirects you to "read products" page --
             header("Location:read_products.php");
+            // It stops the code --
             exit();
         }
-    } catch (PDOException $err) {
+    } catch (PDOException $err) { // It stores the error or exception in the variable
+        // Prints the error message --
         echo "Error: " . $err->getMessage();
     }
 } else {
+    // Redirects to "read products" page --
     header("Location:read_products.php");
+    // Stops the code --
     exit();
 }
-
-// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-//     // It checks if the request method is the POST method --
-//     if (!empty($_POST)) {
-//         $id = isset($_POST['id']) ? $_POST['id'] : "";
-//         $name = isset($_POST['name']) ? $_POST['name'] : "";
-//         $description = isset($_POST['description']) ? $_POST['description'] : "";
-//         $price = isset($_POST['price']) ? $_POST['price'] : "";
-
-//         try {
-//             $sql = "UPDATE products SET name=?, description=?, price=? WHERE id=?";
-//             $query = $pdo->prepare($sql);
-//             $query->execute([$name, $description, $price, $id]);
-
-//             header('Location: read_products.php');
-//             exit();
-//         } catch (PDOException $err) {
-//             echo "Error: " . $err->getMessage();
-//         }
-//     } else {
-//         header('Location: admin_panel.php');
-//         exit();
-//     }
-// }
 
 ?>
 <!DOCTYPE html>

@@ -13,7 +13,7 @@ if (!isset($_SESSION["admin_login"])) {
 }
 
 if (isset($_GET['id'])) {
-    // Create the sql line to find the admin --
+    // Create the sql line to find the product --
     $sql = "SELECT * FROM products WHERE id=?";
 
     // It prepares the query --
@@ -23,17 +23,17 @@ if (isset($_GET['id'])) {
     $query->execute([$_GET['id']]);
 
     // It stores the query result in a variable --
-    $admin = $query->fetch(PDO::FETCH_ASSOC);
+    $product = $query->fetch(PDO::FETCH_ASSOC);
 
     // It checks if it's empty --
-    if (!$admin) {
-        // Redirects you to the "index admin" page, with a GET value --
+    if (!$product) {
+        // Redirects you to the "read product" page, with a GET value --
         header("Location:read_products.php");
 
         // Stops the code --
         exit();
     } else {
-        // Create a sql line, to delete an admin --
+        // Create a sql line, to delete an product --
         $sql = "DELETE FROM products WHERE id=?";
 
         // Prepares the query --
@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
         // Executes the query using the GET id value as param--
         $query->execute([$_GET['id']]);
 
-        // Redirects you to the "index admin" page, with a GET value --
+        // Redirects you to the "read product" page, with a GET value --
         header("Location:read_products.php");
 
         // Stops the code --

@@ -71,7 +71,7 @@ try {
                                     </a>
                                 </td>
                                 <td>
-                                    <!-- It sends a request to delete admin -->
+                                    <!-- It sends a request to delete product -->
                                     <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
                                         <i class="bi bi-trash"></i>
                                     </a>
