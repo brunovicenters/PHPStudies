@@ -50,7 +50,9 @@ try {
                     </thead>
                     <tbody>
                         <!-- Create a foreach, for each product encountered -->
-                        <?php foreach ($products as $product) :
+                        <?php
+                        $counter = 0;
+                        foreach ($products as $product) :
                         ?>
                             <tr>
                                 <!-- It shows the id of the product -->
@@ -66,37 +68,63 @@ try {
                                 <td>$<?= $product["price"] ?></td>
                                 <td>
                                     <!-- It sends a request to edit page -->
-                                    <a href="edit_product.php?id=<?= $product['id'] ?>" class="btn btn-outline-warning">
+                                    <a class="btn btn-outline-warning" data-bs-toggle="modal" data-bs-target="#editModal<?= $counter ?>">
                                         <i class="bi bi-pencil-square"></i>
                                     </a>
+                                    <!-- Modal Edit -->
+                                    <div class="modal fade" id="editModal<?= $counter ?>" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="editModalLabel">Are you sure you want to edit <?= $products[$counter]['name'] ?>?</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <form action="update_product.php?id=<?= $products[$counter]['id'] ?>" method="post" class="col-md-12" enctype="multipart/form-data">
+                                                        <label class="form-label col-md-12" for="name">Name:</label>
+                                                        <input class="form-control col-md-12 mt-2 mb-3" type="text" name="name" id="name" required value="<?= $products[$counter]["name"] ?>">
+                                                        <label class="form-label col-md-12 mb-2" for="description">Description:</label>
+                                                        <textarea class="form-control col-md-12 mt-2 mb-3" name="description" id="description" cols="30" rows="5" required><?= $products[$counter]["description"] ?></textarea>
+                                                        <label class="form-label col-md-12" for="price">Price:</label>
+                                                        <input class="form-control col-md-12 mt-2 mb-3" type="number" name="price" id="price" step="0.01" required value="<?= $products[$counter]["price"] ?>">
+                                                        <button type="submit" class="btn btn-success">Update</button>
+                                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                                 <td>
                                     <!-- It sends a request to delete product -->
-                                    <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+                                    <a class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#deleteModal<?= $counter ?>">
                                         <i class="bi bi-trash"></i>
                                     </a>
+                                    <!-- Modal Delete -->
+                                    <div class="modal fade" id="deleteModal<?= $counter ?>" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure you want to delete <?= $products[$counter]['name'] ?>?</h1>
+                                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <a href="delete_product.php?id=<?= $product['id'] ?>" type="btn" class="btn btn-danger">Delete</a>
+                                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </td>
                             </tr>
-                        <?php endforeach; ?>
+                        <?php
+                            $counter++;
+                        endforeach; ?>
                     </tbody>
                 </table>
                 <a href="admin_panel.php" class="btn btn-secondary">Go back</a>
 
-                <!-- Modal -->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h1 class="modal-title fs-5" id="deleteModalLabel">Are you sure you want to delete <?= $product['name'] ?>?</h1>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="modal-footer">
-                                <a href="delete_product.php?id=<?= $product['id'] ?>" type="btn" class="btn btn-danger">Delete</a>
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
