@@ -12,17 +12,42 @@ if (!isset($_SESSION["admin_login"])) {
     exit();
 }
 
-// Try the code --
-try {
-    // It creates the query to search for all the products --
-    $query = $pdo->prepare("SELECT * FROM products");
-    // Execute the code --
-    $query->execute();
-    // It stores the result in an array --
-    $products = $query->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $err) { // It stores the error or exception in the variable
-    // It show the error --
-    echo "Error:" . $err->getMessage();
+if (!isset($_SESSION["admin_login"])) {
+    // redirect to "login" page --
+    header("Location:login.php");
+    // stops the code --
+    exit();
+}
+
+if (isset($_POST['search']) && !empty($_POST['search'])) {
+    // Try the code --
+    try {
+        // Stores the POST value in a variable --
+        $search = $_POST['search'];
+        // It creates the query to search for all the products that have this sentence in it --
+        $query = $pdo->prepare("SELECT * FROM products WHERE name LIKE '%$search%'");
+
+        // Execute the code --
+        $query->execute();
+        // It stores the result in an array --
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $err) { // It stores the error or exception in the variable
+        // It show the error --
+        echo "Error:" . $err->getMessage();
+    }
+} else {
+    // Try the code --
+    try {
+        // It creates the query to search for all the products --
+        $query = $pdo->prepare("SELECT * FROM products");
+        // Execute the code --
+        $query->execute();
+        // It stores the result in an array --
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $err) { // It stores the error or exception in the variable
+        // It show the error --
+        echo "Error:" . $err->getMessage();
+    }
 }
 ?>
 <!DOCTYPE html>
@@ -36,6 +61,10 @@ try {
         <div class="row">
             <h1 class="h1 text-center">Products</h1>
             <div class="col-md-10 offset-md-1">
+                <form action="" method="post" class="col-md-5 offset-md-7 d-flex gap-3">
+                    <input type="text" class="form-control" placeholder="Search..." name="search" id="search">
+                    <button class="btn btn-outline-success">Search</button>
+                </form>
                 <table class="table">
                     <thead>
                         <tr>
