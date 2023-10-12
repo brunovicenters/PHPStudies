@@ -12,13 +12,7 @@ if (!isset($_SESSION["admin_login"])) {
     exit();
 }
 
-if (!isset($_SESSION["admin_login"])) {
-    // redirect to "login" page --
-    header("Location:login.php");
-    // stops the code --
-    exit();
-}
-
+// It checks if there is a POST search value and it isn't empty --
 if (isset($_POST['search']) && !empty($_POST['search'])) {
     // Try the code --
     try {
