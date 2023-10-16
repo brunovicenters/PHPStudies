@@ -77,15 +77,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="container">
         <div class="row">
             <form action="" method="post" class="col-md-12" enctype="multipart/form-data">
-                <label class="form-label col-md-12" for="name">Name:</label">
-                    <input class="form-control col-md-12 mt-2 mb-3" type="text" name="name" id="name" required>
-                    <label class="form-label col-md-12 mb-2" for="description">Description:</label>
-                    <textarea class="form-control col-md-12 mt-2 mb-3" name="description" id="description" cols="30" rows="5" required></textarea>
-                    <label class="form-label col-md-12" for="price">Price:</label>
-                    <input class="form-control col-md-12 mt-2 mb-3" type="number" name="price" id="price" step="0.01" required>
-                    <label class="form-label col-md-12" for="img">Image:</label>
-                    <input class="form-control mb-3" type="file" name="img" id="img" required>
-                    <button type="submit" class="btn btn-success">Register</button>
+                <label class="form-label col-md-12" for="name">Name:</label>
+                <input class="form-control col-md-12 mt-2 mb-3" type="text" name="name" id="name" required>
+                <label class="form-label col-md-12 mb-2" for="description">Description:</label>
+                <textarea class="form-control col-md-12 mt-2 mb-3" name="description" id="description" cols="30" rows="5" required></textarea>
+                <label class="form-label col-md-12" for="price">Price:</label>
+                <input class="form-control col-md-12 mt-2 mb-3" type="number" name="price" id="price" step="0.01" required>
+                <label class="form-label col-md-12" for="img">Image:</label>
+                <input class="form-control mb-3" type="file" name="img" id="img" required>
+                <button type="submit" class="btn btn-success">Register</button>
             </form>
             <a href="admin_panel.php" class="btn btn-secondary">Go back</a>
         </div>
